@@ -26,9 +26,9 @@ The Sizes (font and width of the inputboxes are defined with the measurement _em
 Defining the empty object:```let importTextItem={};```
 Assigning the formvalues of the form (name: _curForm_) to the corresponding property of _importTextItem_:
 ```importTextItem.iTitel=curForm.inp_title.value;
-   importTextItem.iArea=curForm.inp_area.value;
-    importTextItem.iDesc=curForm.inp_desc_detail.value;
-    importTextItem.iDest=curForm.inp_dest_detail.value;
+importTextItem.iArea=curForm.inp_area.value;
+importTextItem.iDesc=curForm.inp_desc_detail.value;
+importTextItem.iDest=curForm.inp_dest_detail.value;
  ```
 
 

@@ -15,5 +15,13 @@ As said before the current version is a Web-App, that means that there is a link
 ### The Input / Recording Part of the App has the following steps and States
 ![Programming Steps Implementation Input and transmitting data to database](http://www.littleorange.de/keeptrack/o_bilder/InputDiagramm.jpg)
 
+**Detailed Description of the implementation of recording and transmitting data to the database**
+The file __input3,php__ is relevant for the clientside recording and transmitting data process:
+- For the layout the css grid-layout is used. For the aligning the form description and the corresponding input field a two column design was assigned. The columns have the same width in dependency of the available width:
+```display:grid;grid-template-columns:1fr 1fr```
+The rows also have a automatic height. There a 7 Rows defined in the grid, which corresponds to the total of requiered rows in the layout (Input-rows and headline):
+```grid-template-rows:auto auto auto auto auto auto auto```
+The Sizes (font and width of the inputboxes are defined with the measurement _em_ with the goal to enable a responsive view. However the responsive view have to be improved.
+
 
 ### The Front End/ Data-Retrieving Part will be coming soon, when finished the first Part

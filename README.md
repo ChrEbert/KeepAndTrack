@@ -22,7 +22,7 @@ The file __input3.php__ is relevant for the clientside recording and transmittin
 The rows also have a automatic height. There a 7 Rows defined in the grid, which corresponds to the total of required rows in the layout (Input-rows and headline):
 ```grid-template-rows:auto auto auto auto auto auto auto```
 The Sizes (font and width of the inputboxes are defined with the measurement _em_ with the goal to enable a responsive view. However the responsive view have to be improved.
-- The values of the inputfields are accessed by ```NameOfForm.inpfieldname.value ``` . These values are assigned to the corresponding properties of a new Javascript object _importTextItem_, which contains all relevant text-data of the recorded data.
+- The values of the inputfields are accessed by ```NameOfForm.inpfieldname.value ``` . These values are assigned to the corresponding properties of a new Javascript object _importTextItem_, which contains all relevant text-data of the recorded dataset.
 Defining the empty object:```let importTextItem={};```
 Assigning the formvalues of the form (name: _curForm_) to the corresponding property of _importTextItem_:
 ```importTextItem.iTitel=curForm.inp_title.value;

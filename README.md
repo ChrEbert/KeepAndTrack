@@ -45,3 +45,4 @@ transfer.onerror=function(){console.log("Übermittlungsfehler");}
 transfer.onreadystatechange=function(){console.log("Status:"+transfer.readyState+"\n Übermittlung erfolgreich:"+transfer.status+"\n Inhalt:"+transfer.responseText);} ```
 
 ### The Front End/ Data-Retrieving Part will be coming soon, when finished the first Part
+  

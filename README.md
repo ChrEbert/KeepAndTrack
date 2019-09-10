@@ -42,7 +42,10 @@ transfer.open("POST","transferdata.php",true);
 transfer.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 transfer.send('newItem='+importJSON);
 transfer.onerror=function(){console.log("Übermittlungsfehler");}
-transfer.onreadystatechange=function(){console.log("Status:"+transfer.readyState+"\n Übermittlung erfolgreich:"+transfer.status+"\n Inhalt:"+transfer.responseText);} ```
+transfer.onreadystatechange=function(){
+console.log("Status:"+transfer.readyState+"\n Übermittlung erfolgreich:"
++transfer.status+"\n Inhalt:"+transfer.responseText);} 
+```
 
 ### The Front End/ Data-Retrieving Part will be coming soon, when finished the first Part
   

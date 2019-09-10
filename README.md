@@ -36,7 +36,7 @@ tem, this object is transformed to a JSON-file for transfering it to the sql-dat
 
 ```    importJSON=JSON.stringify(importTextItem);```
 
-- The object is transfered to the PHP-File _transferdata_ by using an **XMLHTTPREQUEST** in Javascript.
+- The object is transfered to the PHP-File _transferdata.php_ by using an **XMLHTTPREQUEST** in Javascript.
 ``` var transfer=new XMLHttpRequest();
 transfer.open("POST","transferdata.php",true);
 transfer.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -46,6 +46,8 @@ transfer.onreadystatechange=function(){
 console.log("Status:"+transfer.readyState+"\n Übermittlung erfolgreich:"
 +transfer.status+"\n Inhalt:"+transfer.responseText);} 
 ```
+
+As described before the data is transmitted to the php-fike
 
 ### The Front End/ Data-Retrieving Part will be coming soon, when finished the first Part
   

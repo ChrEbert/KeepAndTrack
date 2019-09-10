@@ -18,9 +18,9 @@ As said before the current version is a Web-App, that means that there is a link
 **Detailed Description of the implementation of recording and transmitting data to the database**
 The file __input3.php__ is relevant for the clientside recording and transmitting data process:
 - For the layout the css grid-layout is used. For the aligning the form description and the corresponding input field a two column design was assigned. The columns have the same width in dependency of the available width:
-```display:grid;grid-template-columns:1fr 1fr```
+``` display:grid;grid-template-columns:1fr 1fr ```
 The rows also have a automatic height. There a 7 Rows defined in the grid, which corresponds to the total of required rows in the layout (Input-rows and headline):
-```grid-template-rows:auto auto auto auto auto auto auto```
+``` grid-template-rows:auto auto auto auto auto auto auto ```
 The Sizes (font and width of the inputboxes are defined with the measurement _em_ with the goal to enable a responsive view. However the responsive view have to be improved.
 - The values of the inputfields are accessed by ```NameOfForm.inpfieldname.value ``` . These values are assigned to the corresponding properties of a new Javascript object _importTextItem_, which contains all relevant text-data of the recorded dataset.
 Defining the empty object:```let importTextItem={};```
@@ -39,13 +39,13 @@ tem, this object is transformed to a JSON-file for transfering it to the sql-dat
 
 The object is transfered to the PHP-File _transferdata_ by using an **XMLHTTPREQUEST** in Javascript.
 <p align="center">
-```var transfer=new XMLHttpRequest();
+``` var transfer=new XMLHttpRequest();
 transfer.open("POST","transferdata.php",true);
 transfer.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 transfer.send('newItem='+importJSON);
 transfer.onerror=function(){console.log("Übermittlungsfehler");}
 transfer.onreadystatechange=function(){console.log("Status:"+transfer.readyState+"\n Übermittlung erfolgreich:"+transfer.status+"\n Inhalt:"+transfer.responseText);}
-```
+ ```
 </p>
 
 ### The Front End/ Data-Retrieving Part will be coming soon, when finished the first Part

@@ -25,12 +25,27 @@ The Sizes (font and width of the inputboxes are defined with the measurement _em
 - The values of the inputfields are accessed by ```NameOfForm.inpfieldname.value ``` . These values are assigned to the corresponding properties of a new Javascript object _importTextItem_, which contains all relevant text-data of the recorded dataset.
 Defining the empty object:```let importTextItem={};```
 Assigning the formvalues of the form (name: _curForm_) to the corresponding property of _importTextItem_:
+<p align="center">
 ```importTextItem.iTitel=curForm.inp_title.value;
 importTextItem.iArea=curForm.inp_area.value;
-importTextItem.iDesc=curForm.inp_desc_detail.value;
+importTextItem.iDesc=curForm.inp_desc_detail.val
 importTextItem.iDest=curForm.inp_dest_detail.value;
  ```
+ </p>
+After all values are assigned to the temporary object importTextI
+tem, this object is transformed to a JSON-file for transfering it to the sql-database.
 
+```    importJSON=JSON.stringify(importTextItem);```
 
+The object is transfered to the PHP-File _transferdata_ by using an **XMLHTTPREQUEST** in Javascript.
+<p align="center">
+```var transfer=new XMLHttpRequest();
+transfer.open("POST","transferdata.php",true);
+transfer.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+transfer.send('newItem='+importJSON);
+transfer.onerror=function(){console.log("Übermittlungsfehler");}
+transfer.onreadystatechange=function(){console.log("Status:"+transfer.readyState+"\n Übermittlung erfolgreich:"+transfer.status+"\n Inhalt:"+transfer.responseText);}
+```
+</p>
 
 ### The Front End/ Data-Retrieving Part will be coming soon, when finished the first Part

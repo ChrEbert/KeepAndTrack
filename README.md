@@ -31,12 +31,12 @@ importTextItem.iArea=curForm.inp_area.value;
 importTextItem.iDesc=curForm.inp_desc_detail.val
 importTextItem.iDest=curForm.inp_dest_detail.value;
 ```  
-After all values are assigned to the temporary object importTextI
+- After all values are assigned to the temporary object importTextI
 tem, this object is transformed to a JSON-file for transfering it to the sql-database.
 
 ```    importJSON=JSON.stringify(importTextItem);```
 
-The object is transfered to the PHP-File _transferdata_ by using an **XMLHTTPREQUEST** in Javascript.
+- The object is transfered to the PHP-File _transferdata_ by using an **XMLHTTPREQUEST** in Javascript.
 ``` var transfer=new XMLHttpRequest();
 transfer.open("POST","transferdata.php",true);
 transfer.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');

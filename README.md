@@ -87,7 +87,7 @@ $o_Item_Date=date('Y-m-d');
 $o_Item_Img_src="none";
 
 ```
-After all the values can be imported to the database with an _SQL-INSERT Statement_.After this statements (checks wether that works you can also find in the original file), the textinformation is imported in the database and the database connection can be closed.
+After all, the values can be imported to the database with an _SQL-INSERT Statement_.After this statement (checks wether that works you can also find in the original file), the textinformation is imported in the database and the database connection can be closed.
 
 ```
 $uploadData="Insert Into KuT_Items (Item_Id,Item_Name,Item_Desc,Item_Area,Item_Area_Desc,Item_Img_Src,Item_Date) Values('".$o_Item_Id."','".$o_Item_Name."','".$o_Item_Desc."','".$o_Item_Area."','".$o_Item_Area_Desc."','".$o_Item_Img_src."','".$o_Item_Date."')";

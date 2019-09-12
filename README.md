@@ -16,6 +16,7 @@ As said before the current version is a Web-App, that means that there is a link
 ![Programming Steps Implementation Input and transmitting data to database](http://www.littleorange.de/keeptrack/o_bilder/InputDiagramm.jpg)
 
 **Detailed Description of the implementation of recording and transmitting data to the database**
+
 The file __input3.php__ is relevant for the clientside recording and transmitting data process:
 - For the layout the css grid-layout is used. For the aligning the form description and the corresponding input field a two column design was assigned. The columns have the same width in dependency of the available width:
 ``` display:grid;grid-template-columns:1fr 1fr ```
@@ -36,7 +37,7 @@ tem, this object is transformed to a JSON-file for transfering it to the sql-dat
 
 ```    importJSON=JSON.stringify(importTextItem);```
 
-- The object is transfered to the PHP-File _transferdata.php_ by using an **XMLHTTPREQUEST** in Javascript.
+- The object is transfered to the PHP-File _transferdata.php_ by using an **XMLHTTPREQUEST** in Javascript. The transfermethod is "Post".
 ``` var transfer=new XMLHttpRequest();
 transfer.open("POST","transferdata.php",true);
 transfer.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -47,7 +48,31 @@ console.log("Status:"+transfer.readyState+"\n Übermittlung erfolgreich:"
 +transfer.status+"\n Inhalt:"+transfer.responseText);} 
 ```
 
-As described before the data is transmitted to the php-fike
+In the targetfile __transferdata.php__ the object is fetched with the variable _impObj_:
+```$impObj=$_POST["newItem"];```
 
+The JSON is imported and it's properties are written in the array _jsonImpObj_ by usin the __json_decode__ command, with the second parameter setted to true. The splitting up to an array helps to import this values in an later step to in certain Columns of an table of a sql-database:
+```$jsonImpObj=json_decode($impObj,true);```
+
+To work with the database in PHP in any possible manner, a databaseconnection is required at first.
+
+```$db=mysqli_connect("Host","User","PW","DB-Name");```
+
+The following parameter are needed, that PHP and the SQL-Data are formatting the incoming text-information in UTF-8. So also all special characters are displayed correctly.
+
+```mb_internal_encoding('UTF-8');
+mysqli_set_charset($db,"utf8");
+```
+There is one value, which cannot be collected from the recorded data in the inputform: for a correct matching with the img-data later on, and also to make the dataset unique in any case, an Id is required. In the table _KuT_Id_ is only one value: The Id of the dataset before. This value summed up with 1 is the Id of the current dataset. The new Id also needs to be updated in the Table _KuT_Id_.
+
+```$quer1="SELECT * FROM KuT_Id";
+$quer1_result=mysqli_query($db,$quer1);
+$getId=mysqli_fetch_object($quer1_result);
+$valGetId=$getId->Id;
+$newId=$valGetId+1;
+$updQuery="Update KuT_Id Set Id=".$newId." Where Id_Name='curId'";
+$quer2_updateId=mysqli_query($db,$updQuery);
+```
+As seen above, the queries are defined in a string as input for the relevant PHP-SQL-command. Since the whole table _KuT_Id_ is selected, the __mysqli_fetch_object__ command is used to write all data in an object(although there is only one dataset of the last Id in this case).
 ### The Front End/ Data-Retrieving Part will be coming soon, when finished the first Part
   

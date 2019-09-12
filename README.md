@@ -75,7 +75,26 @@ $quer2_updateId=mysqli_query($db,$updQuery);
 ```
 As seen above, the queries are defined in a string as input for the relevant PHP-SQL-command. Since the whole table _KuT_Id_ is selected, the __mysqli_fetch_object__ command is used to write all data in an object(although there is only one dataset of the last Id in this case). There are also some commands to check, wether the dql query worked, which have no high relevance for the concept as a whole, so that the description is not necessary at this point.
 
-With fetching the old Id and generate the new, the text-data for the database is complete. The values can by written (inserted) in the table _KuT_Items_: 
+With fetching the old Id and generate the new, the text-data for the database is complete. The values can by written (inserted) in the table _KuT_Items_. For each Column in the database a variable is defined, that are assigned to the corresponding Property of the JSON Property. There are some exceptions:the Id of the dataset, which was described before, and the current timestamp, which should also be uploaded in the database (Variable _$o_Item_Date_).The variable for the imagepath has no information yet, this will be changed when the pictureupload (right branch of graph above).
 
+```
+$o_Item_Id=$newId;
+$o_Item_Name=$jsonImpObj["iTitel"];
+$o_Item_Desc=$jsonImpObj["iDesc"];
+$o_Item_Area=$jsonImpObj["iArea"];
+$o_Item_Area_Desc=$jsonImpObj["iDest"];
+$o_Item_Date=date('Y-m-d');
+$o_Item_Img_src="none";
+
+```
+After all the values can be imported to the database with an _SQL-INSERT Statement_.After this statements (checks wether that works you can also find in the original file), the textinformation is imported in the database and the database connection can be closed.
+
+```
+$uploadData="Insert Into KuT_Items (Item_Id,Item_Name,Item_Desc,Item_Area,Item_Area_Desc,Item_Img_Src,Item_Date) Values('".$o_Item_Id."','".$o_Item_Name."','".$o_Item_Desc."','".$o_Item_Area."','".$o_Item_Area_Desc."','".$o_Item_Img_src."','".$o_Item_Date."')";
+mysqli_close($db);
+
+
+
+```
 ### The Front End/ Data-Retrieving Part will be coming soon, when finished the first Part
   

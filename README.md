@@ -73,6 +73,9 @@ $newId=$valGetId+1;
 $updQuery="Update KuT_Id Set Id=".$newId." Where Id_Name='curId'";
 $quer2_updateId=mysqli_query($db,$updQuery);
 ```
-As seen above, the queries are defined in a string as input for the relevant PHP-SQL-command. Since the whole table _KuT_Id_ is selected, the __mysqli_fetch_object__ command is used to write all data in an object(although there is only one dataset of the last Id in this case).
+As seen above, the queries are defined in a string as input for the relevant PHP-SQL-command. Since the whole table _KuT_Id_ is selected, the __mysqli_fetch_object__ command is used to write all data in an object(although there is only one dataset of the last Id in this case). There are also some commands to check, wether the dql query worked, which have no high relevance for the concept as a whole, so that the description is not necessary at this point.
+
+With fetching the old Id and generate the new, the text-data for the database is complete. The values can by written (inserted) in the table _KuT_Items_: 
+
 ### The Front End/ Data-Retrieving Part will be coming soon, when finished the first Part
   

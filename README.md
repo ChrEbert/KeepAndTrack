@@ -10,10 +10,10 @@ The first version of the app will be a "web-App", using the following mark-up an
 First Version means, that I create this app with the knowledge i already have. There might be other versions with more features, possibly programmed with python.
 
 ## Current State
-As said before the current version is a Web-App, that means that there is a link: [http://www.littleorange.de/keeptrack/](http://www.littleorange.de/keeptrack/), where you can see the pre-alpha version of the app. I am afraid, that the language is currently in german. To view the code, I will place the php-files also in GitHub. I am actually working on programming and designing the part of input the items and transmitting the pictures for the items. When I am finished with this part, I will start programming the frontendpage, where the stored items are displayed in a structure of a house (with loft, cellar etc.) and are also search able. This is the part for retrieving the data, which has been transmitted on the sql database in the first step of recording the data.
+As said before the current version is a Web-App, that means that there is a link: [https://www.bluemeadow.de/KeepTrack/](http://www.littleorange.de/keeptrack/), where you can see the pre-alpha version of the app. I am afraid, that the language is currently in german. To view the code, I will place the php-files also in GitHub. I am actually working on programming and designing the part of input the items and transmitting the pictures for the items. When I am finished with this part, I will start programming the frontendpage, where the stored items are displayed in a structure of a house (with loft, cellar etc.) and are also search able. This is the part for retrieving the data, which has been transmitted on the sql database in the first step of recording the data.
 
 ### The Input / Recording Part of the App has the following steps and States
-![Programming Steps Implementation Input and transmitting data to database](http://www.littleorange.de/keeptrack/o_bilder/InputDiagramm.jpg)
+![Programming Steps Implementation Input and transmitting data to database](https://www.bluemeadow.de/KeepTrack/GitHub/InputDiagramm.jpg)
 
 **Detailed Description of the implementation of recording and transmitting data to the database**
 
